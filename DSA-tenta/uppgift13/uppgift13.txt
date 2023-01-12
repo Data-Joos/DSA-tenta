@@ -1,0 +1,16 @@
+Att kunna beskriva med ord vad är ett "root", "node", "parent node", "child node", "edge",
+"level", "height" och "leaf" av ett binärträd.
+
+• Root: The topmost node of the tree that has no parent node.
+• Parent Node: The node which is a predecessor of a node.
+• Child Node: The node which is the immediate successor of a node.
+• Sibling: Children of the same parent node are called siblings.
+• Edge: Edge acts as a link between the parent node and the child node.
+• Leaf: A node that has no child.
+• Subtree: The tree considering that particular node as the root node.
+• Depth: The distance from the root node to that particular node.
+• Height: The distance from that node to the deepest node of that
+subtree.
+• Height of tree: The height of the root node.
+• Level: The number of parent nodes.
+• Degree of node: The degree of a node is the number of its children.

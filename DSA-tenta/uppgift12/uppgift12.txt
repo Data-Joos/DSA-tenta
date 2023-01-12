@@ -1,0 +1,55 @@
+Att kunna "shifta" bits n gånger till höger eller vänster
+
+PHILIPPES POWERPOINT SVAR
+
+Swap two nibbles in a byte
+
+Decimal 100 is in binary 01100100 is composed by2nibbles 0110 (left) and
+0100 (right). 
+After switching them we have: 01000110 wich is 70 in decimal.
+
+Pseudo code:
+
+(1) x & 0b00001111 (0x0F) to get the right nibble or x & 0b11110000
+(0xF0) to get the left nibble
+(2) Left shift the right nibble4bits to the left (<<4)
+(3) Right shift the left nibble by 4 bits to the right (>>4)
+(4) Bitwise add using OR on both numbers.
+Time and space complexity are O(1)
+------------------------------------------------------------------------------------
+/* C++ Program to demonstrate use of left shift 
+   operator */
+
+#include<stdio.h>
+int main()
+{
+    // a = 5(00000101), b = 9(00001001)
+    unsigned char a = 5, b = 9; 
+
+    // The result is 00001010 
+    printf("a<<1 = %d\n", a<<1);
+
+    // The result is 00010010 
+    printf("b<<1 = %d\n", b<<1);
+    return 0;
+}
+------------------------------------------------
+
+/* C++ Program to demonstrate use of right
+   shift operator */
+#include <stdio.h>
+
+using namespace std;
+int main()
+{
+    // a = 5(00000101), b = 9(00001001)
+    unsigned char a = 5, b = 9;
+
+    // The result is 00000010
+
+    printf("a>>1 = %d\n", a >> 1);
+
+    // The result is 00000100
+    printf("b>>1 = %d\n", b >> 1);
+    return 0;
+}

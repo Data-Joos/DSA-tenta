@@ -1,0 +1,2 @@
+Att kunna skriva pseudokoden av en "binar y search tree".
+

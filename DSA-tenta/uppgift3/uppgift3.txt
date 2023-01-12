@@ -1,0 +1,52 @@
+Att kunna invertera och rotarera en lista.
+
+Sure, here's an example of how to reverse a list in C language:
+
+void reverse_list(int *arr, int size) {
+    int i, temp;
+    for (i = 0; i < size/2; i++) {
+        temp = arr[i];
+        arr[i] = arr[size-i-1];
+        arr[size-i-1] = temp;
+    }
+}
+
+You can use this function to reverse a list by passing the memory address of the 
+first element of the list and the size of the list as arguments. For example:
+
+int list[] = {1, 2, 3, 4, 5};
+reverse_list(list, 5);
+
+This would reverse the order of the elements in the list, so that it becomes {5, 4, 3, 2, 1}.
+
+In this example, the function reverse_list takes an integer pointer and an 
+integer as input and it uses a temporary variable to hold the value of the current element,
+then it assigns the value of the last element to the current element, 
+after that assigns the value of temporary variable to the last element. 
+It performs this operation for half of the array.
+
+The time complexity of this algorithm is O(n/2) which is O(n) and space complexity is O(1).
+-------------------------------------------------------------------------------------------------------
+Sure, here's the pseudo code for reversing a list:
+
+procedure reverse_list(arr, size)
+    for i = 0 to size/2
+        temp = arr[i]
+        arr[i] = arr[size-i-1]
+        arr[size-i-1] = temp
+    end for
+end procedure
+
+This procedure takes an array arr and an integer size as input. 
+It uses a for loop that iterates from index 0 to size/2 and for each iteration 
+it swaps the current element with the element at the opposite end of the array. 
+By iterating only until the size/2 it reverses the array.
+
+You can use this procedure to reverse a list by passing the array and the size of the array as arguments.
+
+list = [1, 2, 3, 4, 5]
+reverse_list(list, 5)
+
+This would reverse the order of the elements in the list, so that it becomes [5, 4, 3, 2, 1]
+
+This algorithm's time complexity is O(n/2) which is O(n) and space complexity is O(1)

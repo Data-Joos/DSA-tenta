@@ -1,0 +1,31 @@
+Att kunna swapa/bytta platsen av två variabler i en lista.
+
+Sure, here's an example of how to swap two elements in a list using C language:
+
+void swap(int a, intb) {
+    int temp = *a;
+    a =b;
+    *b = temp;
+}
+
+You can use this function to swap two elements in a list by passing the memory 
+addresses of the elements as arguments. For example:
+int list[] = {1, 2, 3, 4, 5};
+swap(&list[1], &list[3]);
+
+This would swap the second element (index 1) with the fourth element (index 3) in the list.
+
+In this example, the function swap takes two integer pointer as input and it uses a 
+temporary variable to hold the value of first element, then it assigns the value of 
+second element to first element, after that assigns the value of temporary variable to the second element.
+
+pseudo kod för fråga 2:
+
+procedure swap(a, b)
+    temp = a
+    a = b
+    b = temp
+end procedure
+
+list = [1, 2, 3, 4, 5]
+swap(list[1], list[3])

@@ -1,0 +1,169 @@
+Att kunna skriva strukturen för en enkel/dubbel länkade lista.
+
+A linked list is a data structure that consists of a sequence of nodes, 
+where each node stores a reference to an object (i.e. the data) 
+and a reference to the next node in the list. 
+The first node in the list is referred to as the head and the last node is the tail.
+
+Here is a simple implementation of a singly linked list in pseudocode:
+
+class Node:
+    def __init__(self, data):
+        self.data = data   # assign data to the node
+        self.next = None   # initialize next as None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None   # initialize head as None
+
+    def append(self, data):
+        new_node = Node(data)   # create a new node
+        if self.head is None:   # if head is None, make the new node as head
+            self.head = new_node
+            return
+        last_node = self.head   # else, traverse the list to find the last node
+        while last_node.next:
+            last_node = last_node.next
+        last_node.next = new_node   # make the new node as next of the last node
+
+    def print_list(self):   # function to print the elements of the list
+        cur_node = self.head
+        while cur_node:   # traverse the list
+            print(cur_node.data)
+            cur_node = cur_node.next
+
+In this example, we have two classes: Node and LinkedList. 
+The Node class has two attributes: data and next, 
+where data stores the value of the node and next stores the reference to the next node in the list. 
+The LinkedList class has one attribute: head, which initially points to None.
+The append method allows us to add a new node to the end of the list. 
+And the print_list method allows us to traverse the list and print the data of each node.
+
+A doubly linked list is similar to a singly linked list but each node stores a reference 
+to both the next and previous nodes in the list. This allows for easy traversal in both directions.
+
+It is worth noting that linked list have some advantages over arrays like dynamic size, 
+Efficient Insertion and deletion of nodes but they have a drawback, 
+they have a poor performance when it comes to random access of elements as 
+we have to traverse the whole list to access an element which is not directly reachable like arrays.
+---------------------------------------------------------------------------------------------
+
+`Sure, here is a simple implementation of a linked list with the following operations:
+
+append(data): adds a new node with the given data to the end of the list
+prepend(data): adds a new node with the given data to the beginning of the list
+delete_with_value(data): removes the first node with the given data from the list
+find(data): returns the first node with the given data, or None if not found
+print_list(): prints the data of each node in the list
+
+class Node:
+    def init(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def init(self):
+        self.head = None
+
+    def append(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        last_node = self.head
+        while last_node.next:
+            last_node = last_node.next
+        last_node.next = new_node
+
+    def prepend(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
+    def delete_with_value(self, data):
+        if self.head is None:
+            return
+        if self.head.data == data:
+            self.head = self.head.next
+            return
+        cur_node = self.head
+        while cur_node.next:
+            if cur_node.next.data == data:
+                cur_node.next = cur_node.next.next
+                return
+            cur_node = cur_node.next
+
+    def find(self, data):
+        if self.head is None:
+            return None
+        cur_node = self.head
+        while cur_node:
+            if cur_node.data == data:
+                return cur_node
+            cur_node = cur_node.next
+        return None
+
+    def print_list(self):
+        cur_node = self.head
+        while cur_node:
+            print(cur_node.data)
+            cur_node = cur_node.next
+
+---------------------------------------------------------------------------------------------------------
+
+DUBBEL 
+
+A doubly linked list is a type of linked list that has a pointer to both 
+the previous and next elements in the list. This allows for efficient traversal 
+in both directions, as opposed to a singly linked list which only has a pointer to the next element.
+
+Pseudocode for inserting an element into a doubly linked list:
+
+procedure insert(element, index)
+    if index is 0
+        element.prev = null
+        element.next = head
+        head.prev = element
+        head = element
+    else
+        current = head
+        for i = 0 to index-1
+            current = current.next
+        element.prev = current
+        element.next = current.next
+        current.next.prev = element
+        current.next = element
+    end if
+end procedure
+
+This pseudocode demonstrates the insertion of an element at a specific position in the doubly linked list. 
+When inserting at the head, the new element's prev pointer is 
+set to null and its next pointer is set to the current head. 
+The current head's prev pointer is then set to the new element, 
+and the head pointer is updated to the new element. When inserting at a position other than the head, 
+the current pointer is set to the head and then iterated to the specified index. 
+The new element's prev pointer is set to the current element, 
+and its next pointer is set to the next element. 
+The next element's prev pointer is then set to the new element and the 
+current element's next pointer is set to the new element.
+
+Pseudocode for deleting an element from a doubly linked list:
+
+procedure delete(index)
+    if index is 0
+        head = head.next
+        head.prev = null
+    else
+        current = head
+        for i = 0 to index-1
+            current = current.next
+        current.prev.next = current.next
+        current.next.prev = current.prev
+    end if
+end procedure
+This pseudocode demonstrates the deletion of an element at a specific position in the doubly linked list. 
+When deleting the head, the head pointer is updated to the next element, 
+and the prev pointer of the next element is set to null. When deleting a position 
+other than the head, the current pointer is set to the head and then iterated to the specified index. 
+The next pointer of the previous element is set to the next element, 
+and the prev pointer of the next element is set to the previous element.

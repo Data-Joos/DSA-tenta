@@ -1,0 +1,137 @@
+Att kunna söka på ett linjärt sätt (linear search) en/två dimensionella lista.
+
+Sure, here's an example of how to perform a linear search on a list in C language:
+
+int linear_search(int *arr, int size, int key) {
+    int i;
+    for (i = 0; i < size; i++) {
+        if (arr[i] == key) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+You can use this function to search for a specific element in a list by passing the memory 
+address of the first element of the list, the size of the list and the key you are searching 
+for as arguments. For example:
+
+int list[] = {1, 2, 3, 4, 5};
+int index = linear_search(list, 5, 3);
+
+This would search for the number 3 in the list and return 2, which is the index of 3 in the list.
+
+In this example, the function linear_search takes an integer pointer, an integer, 
+and another integer as input. It uses a for loop that iterates through each element of the array, 
+and checks if the current element is equal to the key. 
+If it is, the function returns the current index (i) of the element in the array. 
+If it doesn't find the key in the array it returns -1
+
+The time complexity of this algorithm is O(n) where n is the size of the list.
+
+In simple terms, the function checks each element of the list one by one, 
+starting from the first element, until it finds the key or reaches the end of the list.
+----------------------------------------------------------------------------------------------------
+Sure, here's the pseudo code for the linear_search function:
+
+function linear_search(arr, size, key)
+    for i = 0 to size-1
+        if arr[i] = key
+            return i
+    end for
+    return -1
+end function
+
+The linear_search function takes an array arr, an integer size and an 
+integer key as input. It uses a for loop that iterates through each element of the array, 
+starting from the first element, and checks if the current element is equal to the key. 
+If it is, the function returns the current index (i) of the element in the array. 
+If it doesn't find the key in the array it returns -1.
+
+You can use this function to search for a specific element in a list by passing the array, 
+the size of the array and the key you are searching for as arguments.
+
+list = [1, 2, 3, 4, 5]
+index = linear_search(list, 5, 3)
+
+This would search for the number 3 in the list and return 2, which is the index of 3 in the list.
+
+This algorithm's time complexity is O(n) where n is the size of the list, 
+because it has to iterate through the entire list in the worst case scenario.
+-------------------------------------------------------------------------------------------
+
+Fråga 4, 2D lista:
+
+Sure, here's an example of how to perform a linear search on a 2D list in C language:
+
+int linear_search_2D(int *arr, int row, int col, int key) {
+    int i, j;
+    for (i = 0; i < row; i++) {
+        for (j = 0; j < col; j++) {
+            if (arr[i*col + j] == key) {
+                return i*col + j;
+            }
+        }
+    }
+    return -1;
+}
+You can use this function to search for a specific element in a 2D list by passing the memory address 
+of the first element of the list, the number of rows, the number of 
+columns and the key you are searching for as arguments. For example:
+
+int list[][5] = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}};
+int index = linear_search_2D(list, 2, 5, 8);
+
+This would search for the number 8 in the 2D list and return 7, which is the index of 8 in the list.
+
+In this example, the function linear_search_2D takes an integer pointer, two integers, 
+and another integer as input. It uses two for loops that iterate through each element of the 2D array, 
+and checks if the current element is equal to the key. If it is, 
+the function returns the current index (i*col + j) of the element in the 2D array. 
+If it doesn't find the key in the array it returns -1.
+
+The time complexity of this algorithm is O(row*col) where row is the number of rows and 
+col is the number of columns.
+
+In simple terms, the function checks each element of the 2D list one by one, 
+starting from the first element, until it finds the key or reaches the end of the list.
+--------------------------------------------------------------------------------------------
+Sure, here's the pseudo code for the linear_search_2D function:
+
+function linear_search_2D(arr, row, col, key)
+    for i = 0 to row-1
+        for j = 0 to col-1
+            if arr[i*col + j] = key
+                return i*col + j
+    end for
+    return -1
+end function
+
+This function takes an array arr, two integers row and col and another integer key as input. 
+It uses nested for loops that iterates through each element of the 2D array, starting from 
+the first element, and checks if the current element is equal to the key. 
+If it is, the function returns the current index (i*col + j) of the element in the 2D array. 
+If it doesn't find the key in the array it returns -1.
+
+You can use this function to search for a specific element in a 2D list by passing the array, 
+the number of rows, the number of columns and the key you are searching for as arguments.
+
+list = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}}
+index = linear_search_2D(list, 2, 5, 8)
+
+This would search for the number 8 in the 2D list and return 7, which is the index of 8 in the 2D list.
+This algorithm's time complexity is O(row*col) where row is the number of rows and col is 
+the number of columns, because it has to iterate through the entire 2D list in the worst case scenario.
+-------------------------------------------------------------------------------------------------------
+
+tidskomplexitet på fråga 4, 2D lista:
+The time complexity of the linear_search_2D function is O(row*col) where row is the number of 
+rows and col is the number of columns.
+
+The reason for this is that in the worst case scenario, the function has to iterate 
+through each element of the 2D array to find the key. Since the array has "row" 
+number of rows and "col" number of columns, the function will have to perform rowcol 
+comparisons. Therefore, the time complexity is O(rowcol) which is a quadratic time complexity.
+
+It is important to note that as the size of the 2D array increases, 
+the function will take longer to run and the time complexity will be affected accordingly.

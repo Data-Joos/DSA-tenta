@@ -1,0 +1,86 @@
+Att kunna meningen av en "hash funktion", en "hash table", "collisions" och "load factor"
+
+PHILIPPES POWERPOINT
+
+• Hashing is a process using hash functions.
+• A hash function is a function that convert a data into a fixed-size key.
+• A hash table is the generalization of an array.
+• Hashing has a time complexity of O(1) for searching.
+Compare with searching in an array O(log n).
+• Problem with possible collisions (One hash value for different keys)
+• Load factor: Number of items / size of the hash table
+--------------------------------------------------------------------------
+
+Hash funktion
+
+A hash function is a mathematical function that takes an input (or 'message') 
+and returns a fixed-size string of characters, which is usually a 'hash' or 'digest'. 
+The same input will always produce the same hash, but even a small change to the input 
+will produce a very different hash. Hash functions are often used to store passwords securely, 
+to check the integrity of files, and for many other tasks.
+
+Here is an example of pseudocode for a simple hash function that takes in a string input, 
+and returns a hash value as an integer:
+
+function hash(string input)
+    hashValue = 0
+    for i = 0 to length(input) - 1
+        hashValue += input[i] * (i + 1)
+    end for
+    return hashValue
+end function
+
+This is a very basic example of a hash function and it is not suitable for real use cases, 
+it is just for the purpose of understanding the concept. 
+In practice, hash functions are typically much more complex and use cryptographic 
+techniques to ensure that the resulting hash values are distributed as evenly as possible 
+and are difficult to reverse engineer.
+
+Explain it to a seven year old child
+
+A hash function is like a magic code maker. It takes something, like a word or a number, 
+and turns it into a secret code. It's like taking your name and turning it into a secret code number. 
+Like your name is "Alice" and the code number is "1234". 
+And whenever we put in "Alice" in the magic code maker, it will always give us "1234". 
+But if we change something like if the name is "Ali" it will give us a different code number "5678" .
+It's used to keep things secret and to help computers find things faster.
+
+--------------------------------------------------------------------------------------------
+Hash table
+
+explain a hash table to a high school teenager
+
+A hash table is a data structure that allows you to quickly find and retrieve data by using a "key" 
+to access it. The key is like an index or a label, and the data is like a value that is stored under 
+that key.
+
+For example, imagine you have a list of all the students in your school and their 
+corresponding student ID numbers. Instead of searching through the entire list every 
+time you want to find a specific student's ID number, 
+you can use a hash table to quickly find the student's ID number by using their name as the key.
+
+A hash table uses a hash function to map the key to a specific location in the table, 
+where the corresponding value is stored. When you want to retrieve the value for a specific key, 
+the hash function is used to quickly find the location of the value in the table. 
+This makes it much faster to find and retrieve data than searching through a list or an array.
+
+It's like if you want to find a book in a library, instead of walking through all the bookshelves 
+in the library, you can find the book by checking the catalog, which is the hash table, 
+and it will point you to the exact bookshelf where the book is located.
+-------------------------------------------------------------------------------------------------
+COLLISIONS 
+
+Problem with possible collisions (One hash value for different keys)
+
+Since hash collisions are inevitable, hash tables have mechanisms of dealing with them, 
+known as collision resolutions. Two of the most common strategies are open addressing and 
+separate chaining. The cache-conscious collision resolution is another strategy that has been 
+discussed in the past for string hash tables.
+
+-------------------------------------------------------------------------------------------------
+
+LOAD FACTOR 
+
+Load factor is defined as (m/n) where n is the total size of the hash table and m is 
+the preferred number of entries that can be inserted before an increment in the size of 
+the underlying data structure is required.

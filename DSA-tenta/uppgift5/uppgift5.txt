@@ -1,0 +1,223 @@
+Att kunna skriva pseudokod av "binar y search" för en/två dimensionella lista
+
+Sure, here's the C code for binary search in a list:
+
+int binary_search(int *arr, int size, int key) {
+    int low = 0;
+    int high = size - 1;
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        if (arr[mid] == key) {
+            return mid;
+        }
+        if (arr[mid] < key) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return -1;
+}
+You can use this function to search for a specific element in a list by passing the memory address 
+of the first element of the list, the size of the list and the key you are searching for as arguments. 
+
+For example:
+
+int list[] = {1, 2, 3, 4, 5};
+int index = binary_search(list, 5, 3);
+
+This would search for the number 3 in the list and return 2, which is the index of 3 in the list.
+
+In this example, the function binary_search takes an integer pointer, an integer, 
+and another integer as input. It uses a while loop that keeps track of the lower and 
+higher bounds of the portion of the array being searched by setting the low to 0 and 
+high to size-1. It calculates the middle index using the formula (low + high) / 2. 
+Then it compares the value at the middle index with the key. If the value is equal to the key, 
+it returns the index. If the value is less than the key, it sets the lower bound to the middle index +1, 
+otherwise, it sets the higher bound to the middle index -1. 
+If the while loop breaks without finding the key it will return -1
+
+The time complexity of this algorithm is O(log n) where n is the size of the list, 
+because it reduces the size of the portion of the array
+--------------------------------------------------------------------------------------------------------
+Pseudokod  
+
+function binary_search(arr, size, key)
+    low = 0
+    high = size - 1
+    while low <= high
+        mid = (low + high) / 2
+        if arr[mid] = key
+            return mid
+        if arr[mid] < key
+            low = mid + 1
+        else
+            high = mid - 1
+    end while
+    return -1
+end function
+--------------------------------------------------------------------------------------------------------
+En annan binary search kod:
+
+int binary_search(int *arr, int low, int high, int key) {
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == key) {
+            return mid;
+        }
+        if (arr[mid] < key) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return -1;
+}
+int list[] = {1, 2, 3, 4, 5};
+int index = binary_search(list, 0, 4, 3);
+------------------------------------------------------------------------------------------------------
+Sure, here's the pseudo code for the binary_search function:
+
+function binary_search(arr, low, high, key)
+    while low <= high
+        mid = (low + high) / 2
+        if arr[mid] = key
+            return mid
+        if arr[mid] < key
+            low = mid + 1
+        else
+            high = mid - 1
+    end while
+    return -1
+end function
+
+This function takes an array arr, two integers low and high and another integer key as input. 
+It uses a while loop that keeps track of the lower and higher bounds of the portion 
+of the array being searched. It calculates the middle index using the formula (low + high) / 2. 
+Then it compares the value at the middle index with the key. If the value is equal to the key, 
+it returns the index. If the value is less than the key, it sets the lower bound to the middle index +1, 
+otherwise, it sets the higher bound to the middle index -1.
+
+You can use this function to search for a specific element in a list by passing the array, 
+the lower bound of the list, the higher bound of the list and the key you are searching for as arguments.
+
+list = [1, 2, 3, 4, 5]
+index = binary_search(list, 0, 4, 3)
+
+This would search for the number 3 in the list and return 2, which is the index of 3 in the list.
+The time complexity of this algorithm is O(log n) where n is the size of the list, because it 
+reduces the size of the portion of the array being searched by half in each iteration.
+As for a 2D list, it's not possible to use Binary search because a 2D list is not sorted. 
+If you want to find an element, you should use linear search.
+--------------------------------------------------------------------------------------------
+Fråga 5, 2D lista:
+Here is an example of the pseudocode for a binary search algorithm applied to a 2D list:
+
+function binary_search_2D(list, target):
+    # Find the middle row
+    row = list[len(list) // 2]
+    # Perform a binary search on the middle row
+    index = binary_search(row, target)
+    if index != -1:
+        # The target has been found in the middle row
+        return (len(list) // 2, index)
+    else:
+        # The target is not in the middle row, so we need to search the upper or lower half of the 2D list
+        if target < row[0]:
+            # The target is in the lower half of the 2D list
+            lower_half = list[:len(list) // 2]
+            result = binary_search_2D(lower_half, target)
+            if result != (-1, -1):
+                return result
+            else:
+                return (-1, -1)
+        else:
+            # The target is in the upper half of the 2D list
+            upper_half = list[len(list) // 2 + 1:]
+            result = binary_search_2D(upper_half, target)
+            if result != (-1, -1):
+                return (result[0] + len(list) // 2 + 1, result[1])
+            else:
+                return (-1, -1)
+
+This pseudocode assumes that the function "binary_search(row, target)" 
+has been defined to perform a binary search on a 1D list and return the index of the target 
+element if it is present, or -1 if it is not present.
+
+Note that this implementation assumes that the 2D list is sorted, 
+and you will have to make sure that your input list is sorted.
+
+Also, note that this algorithm will work correctly only when all rows in 2D list are of same length.
+------------------------------------------------------------------------------------------------------
+EXTRA
+
+binary search 1D & 2D lista i samma C-kod:
+Here is an example of C code for a binary search algorithm applied to a 2D list:
+#include <stdio.h>
+#include <stdlib.h>
+void print2DList(int **arr, int row, int col) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// binary search function for 1D array
+int binary_search(int *arr, int low, int high, int target) {
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == target) {
+            return mid;
+        } else if (arr[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return -1;
+}
+
+// binary search function for 2D array
+int *binary_search_2D(int **arr, int row, int col, int target) {
+    int low = 0, high = row - 1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        int index = binary_search(arr[mid], 0, col - 1, target);
+        if (index != -1) {
+            int *result = (int *) malloc(sizeof(int) * 2);
+            result[0] = mid;
+            result[1] = index;
+            return result;
+        } else if (arr[mid][0] > target) {
+            high = mid - 1;
+        } else {
+            low = mid + 1;
+        }
+    }
+    return NULL;
+}
+
+int main() {
+    int row = 3, col = 4;
+    int **arr = (int **) malloc(sizeof(int *) * row);
+    for (int i = 0; i < row; i++) {
+        arr[i] = (int *) malloc(sizeof(int) * col);
+    }
+    int count = 0;
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            arr[i][j] = count++;
+        }
+    }
+    print2DList(arr, row, col);
+    int target = 5;
+    int *result = binary_search_2D(arr, row, col, target);
+    if (result != NULL) {
+        printf("Target found at index [%d][%d]\n", result[0], result[1]);
+    } else {
+        printf("Target not found\n");
+    }
+    return 0;
+}

@@ -1,0 +1,80 @@
+Att kunna den "array representation" av ett binärträd
+
+Star t memoizing from the leaves and add the maximum of leaves to the root
+of every sub-tree. Adding the value at node and maximum of sub-tree will
+give us the maximum sum of the node values from root to any of the leaves.
+
+
+Problem:
+Given an array that represents a tree in such a way that array indexes are
+values in tree nodes and array values give the parent node of that particular
+index (or node). The value of the root node index would always be -1 as
+there is no parent for root. Construct the standard linked representation of
+given Binary Tree from this given representation.
+
+Example:
+Input: parent[] = {1, 5, 5, 2, 2, -1, 3}
+Output: root of below tree
+
+    5
+   / \
+  1   2
+ /   / \
+0   3   4
+   /
+  6
+----------------------------------------------------------------------------------
+
+what is a binary search tree?
+A binary search tree (BST) is a type of binary tree data structure in which each node 
+has at most two children, which are referred to as the left child and the right child. 
+In addition, the value of each node in a BST is greater than the values of all the nodes 
+in its left subtree and less than the values of all the nodes in its right subtree. 
+This ordering property allows for efficient insertion, deletion and search operations 
+to be performed on the data stored in the tree.
+
+-------------------------------------------------------------------
+
+A binary search tree is a type of tree data structure where each node has at most two children, 
+and the values in the left subtree of a node are less than the node's value, 
+and the values in the right subtree are greater than the node's value. 
+This allows for efficient searching, insertion, and deletion of data stored in the tree.
+----------------------------------------------------------------------------------------------
+
+`Here is an example of pseudo code for inserting a new value into a binary search tree:
+
+Insert(value, node)
+    if node is null
+        create a new node with the given value and return it
+    else if value < node.value
+        node.left = Insert(value, node.left)
+    else if value > node.value
+        node.right = Insert(value, node.right)
+    return node
+
+This code first checks if the current node is null, 
+in which case it creates a new node with the given value. 
+If the value is less than the current node's value, 
+it recursively calls the Insert function on the left child. 
+If the value is greater than the current node's value, 
+it recursively calls the Insert function on the right child. 
+Finally, it returns the node.
+
+Here is an example of pseudo code for searching for a value in a binary search tree:
+
+Search(value, node)
+    if node is null or node.value = value
+        return node
+    else if value < node.value
+        return Search(value, node.left)
+    else if value > node.value
+        return Search(value, node.right)
+        
+This code first checks if the current node is null or if the current node's value is equal
+to the value being searched for. If either of these conditions is true, 
+it returns the node. If the value is less than the current node's value, 
+it recursively calls the Search function on the left child. If the value is greater 
+than the current node's value, it recursively calls the Search function on the right child.
+
+Note that this is just one way to implement a binary search tree, and different 
+languages and libraries may have different variations of the code.

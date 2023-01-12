@@ -1,0 +1,10 @@
+Att kunna skillnaden mellan en "bit", en "byte" och en "nibble"
+
+BIT 
+Är antingen en 1 eller 0
+
+BYTE 
+Är 8 bitar
+
+NIBBLE 
+Är hälften av en byte, dvs 4 bitar

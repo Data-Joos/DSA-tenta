@@ -1,0 +1,50 @@
+Att kunna skriva pseudokod av en stack
+
+Here is an example of a simple stack implemented in pseudo code:
+
+STACK = []
+
+def push(item):
+    STACK.append(item)
+
+def pop():
+    if STACK:
+        return STACK.pop()
+    else:
+        return "Stack is empty"
+
+def peek():
+    if STACK:
+        return STACK[-1]
+    else:
+        return "Stack is empty"
+
+The push(item) function takes an item as input and adds it to the end of the STACK list.
+The pop() function removes and returns the last item in the list (top of the stack) if 
+the list is not empty. Otherwise it returns "Stack is empty".
+The peek() function returns the last item in the list (top of the stack) without removing it, 
+if the list is not empty. Otherwise it returns "Stack is empty".
+
+This is a basic implementation of a stack data structure, which follows the Last In, 
+First Out (LIFO) principle, allowing to push, pop and peek items.
+It's a very simple and easy to understand version of a stack, but could be improved 
+with more functionality or optimization depending on the specific use case.
+--------------------------------------------------------------------------------------------
+PHILIPPES POWERPOINT SVAR
+
+LIFO = Last In First Out
+
+Pseudo code:
+
+(1) If stack not full, push new data at the top of the stack.
+(2) If stack not empty, pop last inputted data out the stack top.
+
+Exercise
+
+In a party of N people, each person will shake her/his hand with each other
+person only once. In total how many hand-shakes would happen?
+
+TN = (N − 1) +TN−1
+(N − 1) + (N − 2) + ... + 2 + 1 =
+N(N − 1)
+2

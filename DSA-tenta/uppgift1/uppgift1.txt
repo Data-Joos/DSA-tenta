@@ -1,0 +1,117 @@
+Give an example of step count method
+Sure! Here's an example of an algorithm to find the maximum element in an array using the step count method:
+
+
+def find_max(arr):
+    max = arr[0]
+    for i in range(1, len(arr)):
+        if arr[i] > max:
+            max = arr[i]
+    return max
+
+
+
+To calculate the time complexity of this algorithm using the step count method:
+
+1. Identify the section of the code that takes the most amount of time to execute. 
+In this case, it's the for loop.
+2. Count the number of steps (or basic operations) performed within that section of code. 
+In this case, we are performing the following operations per iteration of the loop: comparing arr[i] and max, 
+and if arr[i] is greater than max we are updating max with arr[i].
+3. Count the total number of steps performed by the algorithm. 
+For example, if the size of the array is n, the for loop will be 
+executed n-1 times and for each execution 2 steps are performed, 
+so the total number of steps will be 2*(n-1)
+4. Express the time complexity using O(n) notation, where n is the size of the input. 
+So the time complexity of this algorithm is O(n).
+
+It's also important to note that the step count method is 
+not always the best way to calculate the time complexity of 
+an algorithm, because it doesn't take into account how the number of steps 
+changes with respect to the size of the input. In some cases, the number of steps may not be 
+directly proportional to the size of the input, in this case, the Big O notation can be more accurate.
+
+
+
+please explain this as you would to a five year old
+
+Ok, imagine you have a big pile of blocks and you want to find the biggest block. 
+To do this, you pick up each block one at a time, 
+and you compare it to the block that you think is the biggest so far. 
+If you find a block that is bigger than the one you have, you set that block as the new biggest block. 
+You keep doing this until you have looked at all the blocks.
+The amount of time it takes you to find the biggest block is directly related to 
+how many blocks you have. If you have 5 blocks, it will take you less time than if 
+you had 20 blocks. In the same way, the bigger pile of blocks will take more time to look at each of them.
+This is similar to what a computer does with an algorithm. It performs a set of 
+steps and the time it takes to complete those steps is directly related to the size of the input. 
+The time complexity is the measure of how much time an algorithm takes to complete, 
+and this is measured by counting the number of steps it takes. 
+We use something called Big O notation to express this complexity.
+
+Från Philippes förläsningsmaterial
+
+int function sum(int n){
+2 int k,s; O(0)
+3 s=0; O(1)
+4 for(k=1;k<n;k++) O(n+1)
+5   s=s+k; O(n)
+6 sum=s; O(1)
+7 return sum; O(0)
+8 }
+
+Time complexity = 1+(n+1)+n+1=2n+3 -> O(2n)
+Space complexity= 6(int)=6*8=48 bytes independent of n -> O(0)
+
+To calculate the time and space complexity of an algorithm using Big O notation, 
+you would need to count the number of basic operations performed by the algorithm 
+and the amount of memory used, respectively.
+
+For time complexity:
+
+1. Identify the section of the code that takes the most amount of time to execute.
+2. Count the number of basic operations (e.g. additions, multiplications, assignments, etc.) 
+performed within that section of code.
+3. Determine how the number of operations changes with respect to the size of the input (n).
+4. Express the time complexity using O(n) notation, where n is the size of the input.
+
+For space complexity:
+
+1. Identify the variables that are being used by the algorithm and determine their 
+sizes in terms of the size of the input (n).
+2.Count the total amount of memory used by the algorithm, 
+taking into account the sizes of all variables in terms of n.
+3. Express the space complexity using O(n) notation, where n is the size of the input.
+It's important to note that in some cases, the time and space complexity might 
+not be directly proportional to the size of the input n, 
+in this case you can use the appropriate notation like O(log(n)) or O(n^2) to represent the complexity.
+
+
+
+
+def sum_array(arr):
+    total = 0
+    for i in range(len(arr)):
+        total += arr[i]
+    return total`
+
+Sure, here's an explanation of each row of the code, with the step count method:
+
+total = 0: This is an assignment operation, which assigns the value of 0 to the variable total. 
+This takes one step.
+
+for i in range(len(arr)):: This is a for loop that iterates through the range of the length of the input array. 
+The length of the array is calculated by the len() function, which takes one step. 
+The for loop itself takes one step per iteration, so the total number of 
+steps is equal to the length of the array.
+
+total += arr[i]: This is an addition and assignment operation, 
+which adds the value of arr[i] to the current value of total and assigns 
+the result back to total. This takes one step per iteration of the loop. 
+The total number of steps is equal to the length of the array.
+
+return total: This returns the value of the total variable, which takes one step.
+
+So the total number of steps for this algorithm is 1 + 1 + (1 + 1) * n , 
+where n is the size of the input array. This is a constant time operation plus a 
+linear time operation, so the overall time complexity of the algorithm is O(n)
